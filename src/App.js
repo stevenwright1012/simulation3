@@ -7,7 +7,7 @@ import Nav from './components/Nav/Nav';
 // import Post from './components/Post/Post';
 import routes from './routes';
 import PropTypes from 'prop-types'
-// import {withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class App extends Component {
   static propTypes = {
@@ -16,18 +16,15 @@ class App extends Component {
     history: PropTypes.object.isRequired
   }
   render() {
-    console.log(this.props.location);
-    
     return (
       <div className="App">
-        {/* {
+        {
           this.props.location.pathname === '/'
           ?
           null
           :
           <Nav />
-        } */}
-        <Nav />
+        }
         {routes}
       </div>
     );
@@ -36,4 +33,4 @@ class App extends Component {
 
 // const ShowTheLocationWithRouter = withRouter(ShowTheLocation)
 
-export default App;
+export default withRouter(App);

@@ -31,18 +31,17 @@ class Auth extends Component{
             console.log(res.data);
 
             if(res.data[0]){
-                const{username, profileimg, id} = res.data[0];
-                this.props.updateState(id, username, profileimg)    
+                const{username, profileimg} = res.data[0];
+                this.props.updateState(username, profileimg)    
                 this.props.history.push('/dashboard')
             }
         })
     }
     login(){
         axios.post('/login', {username: this.state.username, password:this.state.password}).then(res => {
-            console.log(res.data);
             if(res.data[0]){    
-                const{username, profileimg, id} = res.data[0];
-                this.props.updateState(id, username, profileimg)    
+                const{username, profileimg} = res.data[0];
+                this.props.updateState(username, profileimg)    
                 this.props.history.push('/dashboard')
             }
         })
