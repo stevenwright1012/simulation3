@@ -19,4 +19,6 @@ massive(CONNECTION_URI).then(dbInstance => {
 app.post('/register', con.newUser)
 app.post('/login', con.login)
 
+// app.get('/posts', con.allPosts)
+
 app.listen(3005, () => console.log("3005 nightmares await you"))

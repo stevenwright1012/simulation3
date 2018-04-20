@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-// import {withRouter} from 'react-router-dom';
-
+import {updateState} from '../../duck/reducer'
+import {connect} from 'react-redux';
 
 class Auth extends Component{
     constructor(){
@@ -27,9 +27,12 @@ class Auth extends Component{
         })
     }
     register(){
-        axios.post('/register', {username: this.state.username, password:this.state.password}).then(res => {
+        axios.post('/register', {username: this.state.username, password: this.state.password, profileImg: `https://robohash.org/${this.state.username}.png`}).then(res => {
             console.log(res.data);
-            if(res.data[0]){    
+
+            if(res.data[0]){
+                const{username, profileimg, id} = res.data[0];
+                this.props.updateState(id, username, profileimg)    
                 this.props.history.push('/dashboard')
             }
         })
@@ -38,6 +41,8 @@ class Auth extends Component{
         axios.post('/login', {username: this.state.username, password:this.state.password}).then(res => {
             console.log(res.data);
             if(res.data[0]){    
+                const{username, profileimg, id} = res.data[0];
+                this.props.updateState(id, username, profileimg)    
                 this.props.history.push('/dashboard')
             }
         })
@@ -63,4 +68,5 @@ class Auth extends Component{
     }
 }
 
-export default Auth
+
+export default connect(null, {updateState})(Auth)

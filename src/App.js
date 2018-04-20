@@ -7,7 +7,7 @@ import Nav from './components/Nav/Nav';
 // import Post from './components/Post/Post';
 import routes from './routes';
 import PropTypes from 'prop-types'
-import {withRouter} from 'react-router-dom';
+// import {withRouter} from 'react-router-dom';
 
 class App extends Component {
   static propTypes = {

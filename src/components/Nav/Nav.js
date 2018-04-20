@@ -1,13 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import './Nav.css'
 
 function Nav(props){
     console.log(props);
     
     return(
-        <div>
-            <h1>Nav</h1>
+        <div className='sidebar'>
+            <img src={props.profileImg} alt=""/>
+            <br/>
+            {props.username}
+            <br/>
             <Link to='/dashboard'>
                 <button>Home</button>
             </Link>
@@ -15,10 +19,8 @@ function Nav(props){
                 <button>New Post</button>
             </Link>
             <Link to='/'>
-                <button>Logout</button>
+                <button className='bottom'>Logout</button>
             </Link>
-            {props.username}
-            <img src={props.profileImg} alt=""/>
         </div>
     )
 }
