@@ -1,0 +1,9 @@
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+user_name VARCHAR(80)
+);
+
+CREATE TABLE posts(
+id SERIAL PRIMARY KEY,
+message VARCHAR(140)
+)
