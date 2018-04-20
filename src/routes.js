@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Form from './components/Form/Form';
 import Post from './components/Post/Post';
 
-export default(
+export default (
     <Switch>
         <Route exact path='/' component={Auth}/>
         <Route path='/dashboard' component={Dashboard}/>
